@@ -5,23 +5,22 @@ class Shop {
     this.items = items;
   }
   updateQuality() {
-    const itemsList = this.items;
-    const specialItems = { 
+
+    const itemsList = this.items,
+
+      specialItems = { 
       'Aged Brie': item => this.updateBrie(item),
       'Sulfuras, Hand of Ragnaros': _ => { console.log('Hi'); /* do nothing */ },
       'Backstage passes to a TAFKAL80ETC concert': item => this.updateBackstagePasses(item)
-    };
-    for (var i = 0; i < itemsList.length; i++) {
-      if (itemsList[i].name in specialItems) {
-        specialItems[itemsList[i].name](itemsList[i]);
-      } else {
+      };
 
-      this.updateGeneric(itemsList[i]);
-      }
-  }
+      itemsList.forEach(item => {
+        item.name in specialItems ? specialItems[item.name](item) : this.updateGeneric(item); 
+      });
 
     return itemsList;
   }; 
+
   updateBrie(item) {
     if(item.quality < 50) item.quality++;
     item.sellIn--;
