@@ -1,5 +1,3 @@
-'use strict';
-
 ({ expect } = require('chai'));
 ({ updateState } = require('../../models/updaters/updateHelper'));
 

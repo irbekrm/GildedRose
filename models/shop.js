@@ -1,5 +1,6 @@
 const Item = require('./item.js');
 ({ brieUpdate } = require('./updaters/brieUpdater'));
+({ backstagePassesUpdate } = require('./updaters/backstagePassesUpdater'));
 
 class Shop {
   constructor(items=[]){
@@ -10,7 +11,7 @@ class Shop {
   const specialItems = { 
       'Aged Brie': item => brieUpdate(item),
       'Sulfuras, Hand of Ragnaros': _ => { /* do nothing */ },
-      'Backstage passes to a TAFKAL80ETC concert': item => this.updateBackstagePasses(item)
+      'Backstage passes to a TAFKAL80ETC concert': item =>  backstagePassesUpdate(item)
       };
 
       this.items.forEach(item => {
@@ -20,13 +21,6 @@ class Shop {
     return this.items;
   }; 
 
-  updateBackstagePasses(item) {
-    if(item.sellIn <=0) { this.updateItem(item, -item.quality); return; }
-    if(item.sellIn <= 5) { this.updateItem(item, 3); return; }
-    if(item.sellIn <= 10) { this.updateItem(item, 2); return; }
-    this.updateItem(item, 1);
-  }
-  
   updateGeneric(item) {
     if(item.quality === 0) { this.updateItem(item); return }
     if(item.sellIn <= 0) { this.updateItem(item, -2); return }
