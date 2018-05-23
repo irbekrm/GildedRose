@@ -64,3 +64,35 @@ describe('sulfuras', _ => {
   done();
   });
 });
+
+describe('backstage passes', _ => {
+  const anotherShop = new Shop([{ name: 'Backstage passes to a TAFKAL80ETC concert',
+  quality: 20, sellIn: 11 }]);
+  it('quality increases', done => {
+    anotherShop.updateQuality();
+    expect(anotherShop.items[0].quality).to.equal(21);
+  done();
+  });
+
+  it('quality increases by 2 if it is 10 or less days before concert', done => {
+    anotherShop.updateQuality();
+    expect(anotherShop.items[0].quality).to.equal(23);
+  done();
+  });
+
+  it('quality increases by 3 if it is 5 or less days before concert', done => {
+    const extraShop = new Shop([{ name: 'Backstage passes to a TAFKAL80ETC concert',
+    quality: 21, sellIn: 5 }]);
+    extraShop.updateQuality();
+    expect(extraShop.items[0].quality).to.equal(24);
+  done();
+  });
+
+  it('quality drops to 0 after concert', done => {
+    const plusShop = new Shop([{ name: 'Backstage passes to a TAFKAL80ETC concert',
+    quality: 30, sellIn: 0 }]);
+    plusShop.updateQuality();
+    expect(plusShop.items[0].quality).to.equal(0);
+  done();
+  });
+});
