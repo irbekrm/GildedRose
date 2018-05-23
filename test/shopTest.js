@@ -40,3 +40,12 @@ describe('non-special items', _ => {
   done();
   });
 });
+
+describe('aged brie', _ => {
+  it('increases in quality', done => {
+    const anotherShop = new Shop([{ name: 'Aged Brie', quality: 20, sellIn: 2 }]);
+    anotherShop.updateQuality();
+    expect(anotherShop.items[0].quality).to.equal(21);
+  done();
+  });
+});
