@@ -96,3 +96,15 @@ describe('backstage passes', _ => {
   done();
   });
 });
+
+describe('max quality constraints', _ => {
+  it('quality should not surpass 50 (unless the item is sulfuras)', done => {
+    const valuableItems = [{ name: 'Aged Brie', quality: 50, sellIn: 10 },
+    { name: 'Backstage passes to a TAFKAL80ETC concert', quality: 49, sellIn: 1 },
+    { name: 'Backstage passes to a TAFKAL80ETC concert', quality: 50, sellIn: 10 }];
+    const anotherShop = new Shop(valuableItems);
+    anotherShop.updateQuality();
+    expect(anotherShop.items.map(item => item.quality)).to.deep.equal([50, 50, 50]);
+  done();
+  });
+});
