@@ -49,3 +49,18 @@ describe('aged brie', _ => {
   done();
   });
 });
+
+describe('sulfuras', _ => {
+  const anotherShop = new Shop([{ name: 'Sulfuras, Hand of Ragnaros', quality: 80, sellIn: 'not specified' }]);
+  it('retains quality of 80', done => {
+    anotherShop.updateQuality();
+    expect(anotherShop.items[0].quality).to.equal(80);
+  done();
+  });
+
+  it('does not update sellIn', done => {
+    anotherShop.updateQuality();
+    expect(anotherShop.items[0].sellIn).to.equal('not specified');
+  done();
+  });
+});
