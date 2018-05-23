@@ -15,10 +15,13 @@ class Shop {
   }
   updateQuality() {
     this.items.forEach(item => {
-      item.name in specialItems ? specialItems[item.name](item) : genericUpdate(item)// this.updateGeneric(item)
+      const name = item.name;
+      specialItems[name] ?
+      specialItems[name](item) :
+      genericUpdate(item)
     });
   return this.items;
-  }; 
+  } 
 }
 
 module.exports = Shop;
