@@ -15,16 +15,9 @@ class Shop {
       if (itemsList[i].name in specialItems) {
         specialItems[itemsList[i].name](itemsList[i]);
       } else {
-        if (itemsList[i].quality > 0) {
-            itemsList[i].quality = itemsList[i].quality - 1;
-        }
-        itemsList[i].sellIn = itemsList[i].sellIn - 1;
-      if (itemsList[i].sellIn < 0) {
-            if (itemsList[i].quality > 0) {
-                itemsList[i].quality = itemsList[i].quality - 1;
-            }
+
+      this.updateGeneric(itemsList[i]);
       }
-    }
   }
 
     return itemsList;
@@ -41,10 +34,15 @@ class Shop {
     this.updateItem(item, 1);
   }
   
+  updateGeneric(item) {
+    if(item.quality === 0) { this.updateItem(item); return }
+    if(item.sellIn <= 0) { this.updateItem(item, -2); return }
+    this.updateItem(item, -1);
+  }
+
   updateItem(item, qual=0) {
     item.sellIn--;
-    item.quality = Math.min(item.quality += qual, 50);
+    item.quality = Math.max(Math.min(item.quality += qual, 50), 0);
   }    
-  
 }
 module.exports = Shop;
