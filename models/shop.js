@@ -6,24 +6,21 @@ class Shop {
   }
   updateQuality() {
 
-    const itemsList = this.items,
-
-      specialItems = { 
+  const specialItems = { 
       'Aged Brie': item => this.updateBrie(item),
       'Sulfuras, Hand of Ragnaros': _ => { /* do nothing */ },
       'Backstage passes to a TAFKAL80ETC concert': item => this.updateBackstagePasses(item)
       };
 
-      itemsList.forEach(item => {
+      this.items.forEach(item => {
         item.name in specialItems ? specialItems[item.name](item) : this.updateGeneric(item); 
       });
 
-    return itemsList;
+    return this.items;
   }; 
 
   updateBrie(item) {
-    if(item.quality < 50) item.quality++;
-    item.sellIn--;
+    this.updateItem(item, 1);
   }
 
   updateBackstagePasses(item) {
@@ -44,4 +41,5 @@ class Shop {
     item.quality = Math.max(Math.min(item.quality += qual, 50), 0);
   }    
 }
+
 module.exports = Shop;
