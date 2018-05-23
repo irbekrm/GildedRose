@@ -10,7 +10,7 @@ class Shop {
 
       specialItems = { 
       'Aged Brie': item => this.updateBrie(item),
-      'Sulfuras, Hand of Ragnaros': _ => { console.log('Hi'); /* do nothing */ },
+      'Sulfuras, Hand of Ragnaros': _ => { /* do nothing */ },
       'Backstage passes to a TAFKAL80ETC concert': item => this.updateBackstagePasses(item)
       };
 
