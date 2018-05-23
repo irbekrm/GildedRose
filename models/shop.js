@@ -1,4 +1,5 @@
 const Item = require('./item.js');
+({ brieUpdate } = require('./updaters/brieUpdater'));
 
 class Shop {
   constructor(items=[]){
@@ -7,7 +8,7 @@ class Shop {
   updateQuality() {
 
   const specialItems = { 
-      'Aged Brie': item => this.updateBrie(item),
+      'Aged Brie': item => brieUpdate(item),//this.updateBrie(item),
       'Sulfuras, Hand of Ragnaros': _ => { /* do nothing */ },
       'Backstage passes to a TAFKAL80ETC concert': item => this.updateBackstagePasses(item)
       };
