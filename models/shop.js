@@ -8,7 +8,7 @@ class Shop {
   updateQuality() {
 
   const specialItems = { 
-      'Aged Brie': item => brieUpdate(item),//this.updateBrie(item),
+      'Aged Brie': item => brieUpdate(item),
       'Sulfuras, Hand of Ragnaros': _ => { /* do nothing */ },
       'Backstage passes to a TAFKAL80ETC concert': item => this.updateBackstagePasses(item)
       };
@@ -19,10 +19,6 @@ class Shop {
 
     return this.items;
   }; 
-
-  updateBrie(item) {
-    this.updateItem(item, 1);
-  }
 
   updateBackstagePasses(item) {
     if(item.sellIn <=0) { this.updateItem(item, -item.quality); return; }

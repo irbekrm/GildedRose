@@ -1,3 +1,5 @@
+'use strict';
+
 ({ expect } = require('chai'));
 ({ updateState } = require('../../models/updaters/updateHelper'));
 
@@ -6,9 +8,9 @@ var item,
     smallItem;
 
 beforeEach(done => {
-  item = { sellIn: 2, quality: 23 },
-  bigItem = { sellIn: 2, quality: 49 },
-  smallItem = { sellIn: 2, quality: 1 }
+  item = { sellIn: 2, quality: 23 };
+  bigItem = { sellIn: 2, quality: 49 };
+  smallItem = { sellIn: 2, quality: 1 };
   done();
 });
 

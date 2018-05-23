@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports = {
   updateState: (item, quality=0) => {
     item.sellIn--;
