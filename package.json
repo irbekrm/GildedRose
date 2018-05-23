@@ -1,0 +1,28 @@
+{
+  "name": "gildedrose",
+  "version": "1.0.0",
+  "description": "gilded rose tech test",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/irbekrm/GildedRose.git"
+  },
+  "keywords": [
+    "javascript"
+  ],
+  "author": "irbe",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/irbekrm/GildedRose/issues"
+  },
+  "homepage": "https://github.com/irbekrm/GildedRose#readme",
+  "devDependencies": {
+    "chai": "^4.1.2"
+  }
+}
