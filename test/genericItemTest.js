@@ -1,4 +1,4 @@
-({ expect } = require('chai').expect);
+const expect = require('chai').expect;
 const Item = require('../models/item'),
   GenericItem = require('../models/genericItem');
 

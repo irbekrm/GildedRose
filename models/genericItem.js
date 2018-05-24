@@ -9,6 +9,10 @@ class GenericItem extends Item {
     this.sellIn--;
     this.quality = Math.max(Math.min(this.quality += quality, 50), 0);
   }
+
+  updateQuality() {
+    this.sellIn > 0 ? this.setState(-1) : this.setState(-2);
+  }
 }
 
 module.exports = GenericItem;
