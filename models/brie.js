@@ -5,6 +5,7 @@ class Brie extends GenericItem {
     super(name, sellIn, quality);
   }
 
+  updateQuality() { this.setState(1) }
 }
 
 module.exports = Brie;
