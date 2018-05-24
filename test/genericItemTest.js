@@ -25,7 +25,7 @@ describe('new generic item', _ => {
 describe('updating state of an item', _ => {
   it('decreases the sellIn by 1', done => {
     genericItem.updateState(3);
-    expect(genericItem.sellIn).to.equal(29);
+    expect(genericItem.sellIn).to.equal(19);
   done();
   });
 
