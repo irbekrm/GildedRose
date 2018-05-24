@@ -6,6 +6,7 @@ var genericItem;
 
 before(done => {
   genericItem = new GenericItem('juice', 20, 30);
+  done();
 }); 
 
 describe('new generic item', _ => {
@@ -13,5 +14,6 @@ describe('new generic item', _ => {
     expect(genericItem.name).to.equal('juice');
     expect(genericItem.sellIn).to.equal(20);
     expect(genericItem.quality).to.equal(30);
+  done();
   });
 });
