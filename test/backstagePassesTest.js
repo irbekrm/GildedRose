@@ -31,4 +31,28 @@ describe('creating a new backstage pass instance', _ => {
   });
 });
 
+describe('updating quality', _ => {
+  it('quality increases by 1 ', done => {
+    backstagePass.updateQuality();
+    expect(backstagePass.quality).to.equal(5);
+  done();
+  });
 
+  it('quality increases by 2 when it is 10 or less days before concert', done => {
+    backstagePass10.updateQuality();
+    expect(backstagePass10.quality).to.equal(6);
+  done();
+  });
+
+  it('quality increases by 3 when it is 5 or less days before concert', done => {
+    backstagePass5.updateQuality();
+    expect(backstagePass5.quality).to.equal(7);
+  done();
+  });
+
+  it('quality drops to 0 after the concert', done => {
+    backstagePass0.updateQuality();
+    expect(backstagePass0.quality).to.equal(0);
+  done();
+  });
+});
