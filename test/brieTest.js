@@ -24,3 +24,11 @@ describe('creating a new brie', _ => {
   done();
   });
 });
+
+describe('updating brie quality', _ => {
+  it('increases quality by 1', done => {
+    brie.updateQuality();
+    expect(brie.quality).to.equal(6);
+  done();
+  });
+}); 
