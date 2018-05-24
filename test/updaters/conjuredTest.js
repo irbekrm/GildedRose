@@ -11,5 +11,11 @@ describe('conjuredItems decrease in quality twice as fast', _ => {
     expect(conjured.quality).to.equal(19);
   done();
   });
+
+  it('decreases in quality by 4 after sellIn days', done => {
+    conjuredUpdate(lateConjured);
+    expect(lateConjured.quality).to.equal(18);
+  done();
+  });
 });
      
