@@ -26,3 +26,17 @@ describe('creating a new conjured instance', _ => {
   done();
   });
 });
+
+describe('updating conjured', _ => {
+  it('declines in quality by 2 before expiry date', done => {
+    conjured.updateQuality();
+    expect(conjured.quality).to.equal(3);
+  done();
+  });
+
+  it('declines in quality by 4 after expiry date', done => {
+    lateConjured.updateQuality();
+    expect(lateConjured.quality).to.equal(5);
+  done();
+  });
+});
