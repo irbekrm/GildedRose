@@ -15,10 +15,7 @@ class Shop {
   }
   updateQuality() {
     this.items.forEach(item => {
-      const name = item.name;
-      specialItems[name] ?
-      specialItems[name](item) :
-      genericUpdate(item)
+      (specialItems[item.name] || genericUpdate)(item)
     });
   return this.items;
   } 
