@@ -24,19 +24,19 @@ describe('new generic item', _ => {
 
 describe('updating state of an item', _ => {
   it('decreases the sellIn by 1', done => {
-    genericItem.updateState(3);
+    genericItem.setState(3);
     expect(genericItem.sellIn).to.equal(19);
   done();
   });
 
   it('does not allow the quality to exceed 50', done => {
-    bigItem.updateState(2);
+    bigItem.setState(2);
     expect(bigItem.quality).to.equal(50);
   done();
   });
 
   it('does not allow the quality to fall below 0', done => {
-    littleItem.updateState(-3);
+    littleItem.setState(-3);
     expect(littleItem.quality).to.equal(0);
   done();
   });
