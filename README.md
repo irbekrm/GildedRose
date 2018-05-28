@@ -1,6 +1,8 @@
 GildedRose
 ====
 
+[![Build Status](https://travis-ci.org/irbekrm/GildedRose.svg?branch=master)](https://travis-ci.org/irbekrm/GildedRose)
+
 ### Description
 
 [Gilded Rose tech test](https://github.com/emilybache/GildedRose-Refactoring-Kata).
