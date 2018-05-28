@@ -1,21 +1,25 @@
-({ brieUpdate } = require('./updaters/brieUpdater'));
-({ backstagePassesUpdate } = require('./updaters/backstagePassesUpdater'));
-({ genericUpdate } = require('./updaters/genericUpdater'));
+const BrieWrapper = require('./brieWrapper'),
+  ConjuredWrapper = require('./conjuredWrapper'),
+  SulfurasWrapper = require('./sulfurasWrapper'),
+  BackstagePassWrapper = require('./backstagePassWrapper'),
+  GenericWrapper = require('./genericWrapper'),
 
-const Item = require('./item.js'),
-  specialItems = { 
-    'Aged Brie': item => brieUpdate(item),
-    'Sulfuras, Hand of Ragnaros': _ => { /* do nothing */ },
-    'Backstage passes to a TAFKAL80ETC concert': item =>  backstagePassesUpdate(item)
-  };
-
+  specialItemNames = {
+    'Aged Brie': BrieWrapper,
+    'Sulfuras, Hand of Ragnaros': SulfurasWrapper,
+    'Backstage passes to a TAFKAL80ETC concert': BackstagePassWrapper,
+    'Conjured Mana Cake': ConjuredWrapper
+ }; 
+    
+  
 class Shop {
   constructor(items=[]){
     this.items = items;
   }
   updateQuality() {
     this.items.forEach(item => {
-      (specialItems[item.name] || genericUpdate)(item)
+      var itemClass = specialItemNames[item.name] || GenericWrapper;
+      (new itemClass(item)).updateQuality();
     });
   return this.items;
   } 

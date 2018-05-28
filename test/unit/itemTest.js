@@ -1,5 +1,5 @@
 const expect = require('chai').expect,
-      Item = require('../models/item');
+      Item = require('../../models/item');
 
 describe('creating a new item', _ => {
   it('creates a new Item instance with name, sellIn and quality set', done => {
