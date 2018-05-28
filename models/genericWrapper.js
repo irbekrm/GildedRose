@@ -8,7 +8,7 @@ class GenericWrapper {
   set sellIn(sellIn) { this.item.sellIn = sellIn }
   get sellIn() { return this.item.sellIn }
   
-  setState(quality=0) {
+  setState(quality) {
     this.sellIn = this.sellIn - 1;
     this.quality = Math.max(Math.min(this.quality += quality, 50), 0);
   }
