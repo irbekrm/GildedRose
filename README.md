@@ -37,7 +37,7 @@ I started by writing tests for all the existing features. Tests can later be use
 I wanted to refactor the code so that 
 
 1) adding a new feature would require very little change to the existing codebase,
-2) a developer could easily understand where to add code for a new feature and
+2) a developer could easily understand where to add code for a new feature,
 3) general constraints would be implemented once and reused for all new features. 
 
 A new feature in this case would most likely be a new item for the shop. 
@@ -51,8 +51,8 @@ I then decided to create a number of wrapper classes for the original shop items
 When shop's items are updated at the end of the day, for each item a new instance of wrapper class is created (depending on the name of the item it is either GenericWrapper or a class that extends GenericWrapper, such as BrieWrapper).
 `updateQuality` method of that instance is then called. 
 
-Wrapper classes have item property that holds a reference to the original item. They also have setters and getters that allow
-to access item's sellIn and quality as if they were properties of the wrapper instance itself.
+Wrapper classes have `item` property that holds a reference to the original item. They also have setters and getters that allow
+to access item's `sellIn` and `quality` properties as if they were properties of the wrapper instance itself.
 
 `GenericWrapper` class has a `setState` method that implements the rules that apply to most items. This method is inherited by the other wrapper classes that extend `GenericWrapper`. 
 
@@ -64,22 +64,31 @@ When a developer wants to add a new item to the list, they should:
 4) import the new class into the `shop` script and add a new key-value pair to `specialItems` object (in `shop` script such that the key
 is the name of the item and value is the class name.
 
+### Use 
+
+[Clone the repository](https://github.com/irbekrm/GildedRose.git)
+
+*npm install* - install dependencies
+
+*npm test* - run tests and view test coverage
+
+*npm run lint* - run ESLint linter
+
+**Interact with the code:**
+
+*npm start* - will start a console with Shop and Item classes preloaded
+
+`const item1 = new Item('Aged Brie', 3, 8), item2 = new Item('Conjured Mana Cake', 2, 9); // Create new items`
+
+`const shop = new Shop([item1, item2]); // Create new shop instance with items`
+
+`shop.updateQuality(); // Update state of the shop items`
 
 
-### Tech
+## Tech
 
 * Core JavaScript
 * Node.js
 * Mocha
 * Chai
 * ESLint
-
-
-
-
-
-
-
-
-
-
