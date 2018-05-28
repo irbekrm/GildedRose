@@ -1,6 +1,10 @@
 const expect = require('chai').expect,
-  Item = require('../../models/item'),
-  BackstagePassWrapper = require('../../models/backstagePassWrapper');
+  BackstagePassWrapper = require('../../models/backstagePassWrapper'),
+  Item = function(name, sellIn, quality) {
+    this.name = name;
+    this.sellIn = sellIn;
+    this.quality = quality;
+  };
 
 var backstagePassWrapper,
     backstagePassWrapper10,
