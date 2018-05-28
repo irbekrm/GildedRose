@@ -1,6 +1,10 @@
 const expect = require('chai').expect,
   SulfurasWrapper = require('../../models/sulfurasWrapper'),
-  Item = require('../../models/item');
+  Item = function(name, sellIn, quality) {
+    this.name = name;
+    this.sellIn = sellIn;
+    this.quality = quality;
+  };
 
 var sulfuras = new SulfurasWrapper(new Item('sulfuras', 0, 80));
 

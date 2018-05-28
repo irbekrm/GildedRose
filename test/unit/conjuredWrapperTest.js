@@ -1,6 +1,10 @@
 const expect= require('chai').expect,
-  Item = require('../../models/item'),
-  ConjuredWrapper = require('../../models/conjuredWrapper');
+  ConjuredWrapper = require('../../models/conjuredWrapper'),
+  Item = function(name, sellIn, quality) {
+    this.name = name;
+    this.quality = quality;
+    this.sellIn = sellIn;
+  };
 
 var conjuredWrapper,
   lateConjuredWrapper;
