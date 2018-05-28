@@ -3,6 +3,7 @@ const BrieWrapper = require('./brieWrapper'),
   SulfurasWrapper = require('./sulfurasWrapper'),
   BackstagePassWrapper = require('./backstagePassWrapper'),
   GenericWrapper = require('./genericWrapper'),
+
   specialItemNames = {
     'Aged Brie': BrieWrapper,
     'Sulfuras, Hand of Ragnaros': SulfurasWrapper,
@@ -18,7 +19,6 @@ class Shop {
   updateQuality() {
     this.items.forEach(item => {
       var itemClass = specialItemNames[item.name] || GenericWrapper;
-      console.log('item class is ', itemClass);
       (new itemClass(item)).updateQuality();
     });
   return this.items;
