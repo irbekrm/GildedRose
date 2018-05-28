@@ -83,9 +83,13 @@ is the name of the item and value is the class name.
 
 const item1 = new Item('Aged Brie', 3, 8), item2 = new Item('Conjured Mana Cake', 2, 9);
 
-const shop = new Shop([item1, item2]); // Create new shop instance with items
+// Create a new shop instance with items
 
-shop.updateQuality(); // Update state of the shop items
+const shop = new Shop([item1, item2]);
+
+// Update state of the shop items
+
+shop.updateQuality(); 
 ```
 
 
