@@ -1,6 +1,6 @@
 const expect = require('chai').expect,
-  Item = require('../models/item'),
-  GenericWrapper = require('../models/genericWrapper');
+  Item = require('../../models/item'),
+  GenericWrapper = require('../../models/genericWrapper');
 
 var genericWrapper,
     bigWrapper,
