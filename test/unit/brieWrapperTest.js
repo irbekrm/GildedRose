@@ -1,6 +1,10 @@
 const expect = require('chai').expect,
-  Item = require('../../models/item'),
-  BrieWrapper = require('../../models/brieWrapper');
+  BrieWrapper = require('../../models/brieWrapper'),
+  Item = function(name, sellIn, quality) {
+    this.name = name;
+    this.sellIn = sellIn;
+    this.quality = quality;
+  };
 
 var brie;
 
