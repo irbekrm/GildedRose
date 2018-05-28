@@ -1,3 +1,5 @@
+'use strict';
+
 const expect = require('chai').expect,
   GenericWrapper = require('../../models/genericWrapper'),
   Item = function(name, sellIn, quality) {
@@ -17,7 +19,7 @@ beforeEach(done => {
   littleWrapper = new GenericWrapper(new Item('eggs', 3, 1));
   oldWrapper = new GenericWrapper(new Item('pasta', -1, 4));
   done();
-}); 
+});
 
 describe('new generic item', _ => {
   it('has quality and sellIn', done => {
@@ -45,7 +47,7 @@ describe('updating state of an item', _ => {
     expect(littleWrapper.quality).to.equal(0);
   done();
   });
-}); 
+});
 
 describe('updating quality of an item', _ => {
   it('quality decreased by 1 before sell by date', done => {
@@ -58,5 +60,5 @@ describe('updating quality of an item', _ => {
     oldWrapper.updateQuality();
     expect(oldWrapper.quality).to.equal(2);
   done();
-  }); 
+  });
 });

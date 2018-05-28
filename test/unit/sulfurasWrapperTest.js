@@ -1,3 +1,5 @@
+'use strict';
+
 const expect = require('chai').expect,
   SulfurasWrapper = require('../../models/sulfurasWrapper'),
   Item = function(name, sellIn, quality) {
@@ -21,4 +23,3 @@ describe('sulfuras wrapper', _ => {
   done();
   });
 });
-  

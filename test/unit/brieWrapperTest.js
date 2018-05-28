@@ -1,3 +1,5 @@
+'use strict';
+
 const expect = require('chai').expect,
   BrieWrapper = require('../../models/brieWrapper'),
   Item = function(name, sellIn, quality) {
@@ -31,4 +33,4 @@ describe('updating brie quality', _ => {
     expect(brie.quality).to.equal(6);
   done();
   });
-}); 
+});

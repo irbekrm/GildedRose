@@ -1,3 +1,5 @@
+'use strict';
+
 const expect = require('chai').expect,
       Item = require('../../models/item');
 
@@ -11,4 +13,3 @@ describe('creating a new item', _ => {
   done();
   });
 });
-   

@@ -1,3 +1,5 @@
+'use strict';
+
 const GenericWrapper = require('./genericWrapper');
 
 class ConjuredWrapper extends GenericWrapper {
@@ -8,7 +10,7 @@ class ConjuredWrapper extends GenericWrapper {
   updateQuality() {
     this.sellIn > 0 ?
     this.setState(-2) :
-    this.setState(-4)
+    this.setState(-4);
   }
 }
 

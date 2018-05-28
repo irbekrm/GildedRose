@@ -1,10 +1,12 @@
+'use strict';
+
 const GenericWrapper = require('./genericWrapper');
 
 class BackstagePassWrapper extends GenericWrapper {
   constructor(item){
     super(item);
   }
-  
+
   updateQuality() {
     this.sellIn <= 0 ?
     this.setState(-this.quality) :
@@ -12,7 +14,7 @@ class BackstagePassWrapper extends GenericWrapper {
     this.setState(3) :
     this.sellIn <= 10 ?
     this.setState(2) :
-    this.setState(1)
+    this.setState(1);
   }
 }
 

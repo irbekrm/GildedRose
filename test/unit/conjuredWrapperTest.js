@@ -1,4 +1,6 @@
-const expect= require('chai').expect,
+'use strict';
+
+const expect = require('chai').expect,
   ConjuredWrapper = require('../../models/conjuredWrapper'),
   Item = function(name, sellIn, quality) {
     this.name = name;

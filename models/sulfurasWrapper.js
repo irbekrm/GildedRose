@@ -1,3 +1,5 @@
+'use strict';
+
 const GenericWrapper = require('./genericWrapper');
 
 class SulfurasWrapper extends GenericWrapper {

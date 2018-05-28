@@ -1,3 +1,5 @@
+'use strict';
+
 const GenericWrapper = require('../models/genericWrapper');
 
 class BrieWrapper extends GenericWrapper {
@@ -5,7 +7,7 @@ class BrieWrapper extends GenericWrapper {
     super(item);
   }
 
-  updateQuality() { this.setState(1) }
+  updateQuality() { this.setState(1); }
 }
 
 module.exports = BrieWrapper;

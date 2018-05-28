@@ -1,3 +1,5 @@
+'use strict';
+
 const expect = require('chai').expect,
   BackstagePassWrapper = require('../../models/backstagePassWrapper'),
   Item = function(name, sellIn, quality) {
@@ -12,10 +14,14 @@ var backstagePassWrapper,
     backstagePassWrapper0;
 
 beforeEach(done => {
-  backstagePassWrapper = new BackstagePassWrapper(new Item('someConcert', 20, 4));
-  backstagePassWrapper10 = new BackstagePassWrapper(new Item('someConcert', 10, 4));
-  backstagePassWrapper5 = new BackstagePassWrapper(new Item('someConcert', 5, 4));
-  backstagePassWrapper0 = new BackstagePassWrapper(new Item('someConcert', 0, 4));
+  backstagePassWrapper = new BackstagePassWrapper(
+  new Item('someConcert', 20, 4));
+  backstagePassWrapper10 = new BackstagePassWrapper(
+  new Item('someConcert', 10, 4));
+  backstagePassWrapper5 = new BackstagePassWrapper(
+  new Item('someConcert', 5, 4));
+  backstagePassWrapper0 = new BackstagePassWrapper(
+  new Item('someConcert', 0, 4));
   done();
 });
 
@@ -25,7 +31,7 @@ describe('creating a new backstage pass instance', _ => {
   done();
   });
 
-  it('has quality' , done => {
+  it('has quality', done => {
     expect(backstagePassWrapper.quality).to.equal(4);
   done();
   });
@@ -38,13 +44,15 @@ describe('updating quality', _ => {
   done();
   });
 
-  it('quality increases by 2 when it is 10 or less days before concert', done => {
+  it('quality increases by two 10 or less days before concert',
+  done => {
     backstagePassWrapper10.updateQuality();
     expect(backstagePassWrapper10.quality).to.equal(6);
   done();
   });
 
-  it('quality increases by 3 when it is 5 or less days before concert', done => {
+  it('quality increases by three 5 or less days before concert',
+  done => {
     backstagePassWrapper5.updateQuality();
     expect(backstagePassWrapper5.quality).to.equal(7);
   done();
