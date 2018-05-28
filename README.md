@@ -28,12 +28,56 @@ From the given description:
 
 ### Approach
 
-The legacy codebase consisted of a single script with two classes- `Item` and `Shop`.
-`Shop` class had an `updateQuality` method that used a number of nested `if -else` statements to 
-update the existing items according to their type.
+The legacy codebase consists of a single script with two classes- `Item` and `Shop`.
+`Shop` class has an `updateQuality` method that uses a number of nested `if -else` statements to 
+update the existing shop items according to their type.
 
-I first wrote tests for all the existing features. Tests could later be used to ensure changes to the codebase haven't broken
-any existing features.
+I started by writing tests for all the existing features. Tests can later be used to ensure changes to the codebase don't break any existing features.
+
+I wanted to refactor the code so that 
+
+1) adding a new feature would require very little change to the existing codebase,
+2) a developer could easily understand where to add code for a new feature and
+3) general constraints would be implemented once and reused for all new features. 
+
+A new feature in this case would most likely be a new item for the shop. 
+
+The existing code uses ES6 classes, so it seemed reasonable to continue using these for consistency.
+
+I initially wrote a number of ES6 classes extending the existing Item class(i.e Brie, Conjured, etc).
+A shop would then be initialised with a list of items that would already be instances of these new classes. After discussing this approach with the coach I realised that the requirements were to not modify the way items are added to the shop.
+
+I then decided to create a number of wrapper classes for the original shop items.
+When shop's items are updated at the end of the day, for each item a new instance of wrapper class is created (depending on the name of the item it is either GenericWrapper or a class that extends GenericWrapper, such as BrieWrapper).
+`updateQuality` method of that instance is then called. 
+
+Wrapper classes have item property that holds a reference to the original item. They also have setters and getters that allow
+to access item's sellIn and quality as if they were properties of the wrapper instance itself.
+
+`GenericWrapper` class has a `setState` method that implements the rules that apply to most items. This method is inherited by the other wrapper classes that extend `GenericWrapper`. 
+
+When a developer wants to add a new item to the list, they should:
+
+1) create a new wrapper class extending `Generic Wrapper` class
+2) implement rules for updating the new item in `updateQuality` method
+3) call `setState` from `updateQuality` passing the value by which item's quality needs to be incremented. `setState` method implements generic constraints for `quality` (0 <= quality >= 50) and increments the `sellIn` property of item.
+4) import the new class into the `shop` script and add a new key-value pair to `specialItems` object (in `shop` script such that the key
+is the name of the item and value is the class name.
+
+
+
+### Tech
+
+* Core JavaScript
+* Node.js
+* Mocha
+* Chai
+* ESLint
+
+
+
+
+
 
 
 
