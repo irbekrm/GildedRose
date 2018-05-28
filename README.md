@@ -79,6 +79,7 @@ is the name of the item and value is the class name.
 *npm start* - will start a console with Shop and Item classes preloaded
 
 `Create some new items
+
 const item1 = new Item('Aged Brie', 3, 8), item2 = new Item('Conjured Mana Cake', 2, 9);`
 
 `const shop = new Shop([item1, item2]); // Create new shop instance with items`
